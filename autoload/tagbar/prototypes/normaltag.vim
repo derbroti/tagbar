@@ -29,6 +29,11 @@ function! s:strfmt() abort dict
     let typeinfo = self.typeinfo
 
     let suffix = get(self.fields, 'signature', '')
+    " we do not want a space before the &
+    let suffix = substitute(suffix, ' & ', '\& ', 'g')
+    " but we do want a space after each argument
+    let suffix = substitute(suffix, ',', ', ', 'g')
+
     if has_key(self.fields, 'type')
         let suffix .= ' : ' . self.fields.type
     elseif has_key(get(typeinfo, 'kind2scope', {}), self.fields.kind)
