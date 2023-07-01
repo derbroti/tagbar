@@ -2134,7 +2134,10 @@ function! s:PrintTag(tag, depth, output, fileinfo, typeinfo) abort
                     let indent  = (a:depth + 1) * g:tagbar_indent
                     let indent += g:tagbar_show_visibility
                     let indent += 1 " fold symbol
-                    call add(a:output, repeat(' ', indent) . '[' . ckind.long . ']')
+                    " print enums but not the [enumerators] line
+                    if ckind.long != "enumerators"
+                        call add(a:output, repeat(' ', indent) . '[' . ckind.long . ']')
+                    endif
                     " Add basic tag to allow folding when on the header line
                     let headertag = tagbar#prototypes#basetag#new(ckind.long)
                     let headertag.parent = a:tag
