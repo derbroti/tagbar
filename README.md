@@ -1,3 +1,7 @@
+## Fork Note
+
+Includes some small hacks and visual fine-tunings for my liking.
+
 # Tagbar: a class outline viewer for Vim
 
 [![Vint](https://github.com/preservim/tagbar/workflows/Vint/badge.svg)](https://github.com/preservim/tagbar/actions?workflow=Vint)
